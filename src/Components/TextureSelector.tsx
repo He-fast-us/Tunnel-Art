@@ -25,17 +25,20 @@ export const TextureSelector = () => {
     } = useKeyboard()
 
     useEffect(() => {
-        /*const textures = {
-            dirt: dirtImg,
-            grass: grassImg,
-            glass: glassImg,
-            wood: woodImg,
-            log: logImg,
-        }*/
-        const pressedTexture = Object.entries(textures).find(([k, v]) => v) as [keyof typeof textures, typeof textures[keyof typeof textures]]
+        const textureKeys = {
+            dirtTexture: dirt,
+            grassTexture: grass,
+            glassTexture: glass,
+            woodTexture: wood,
+            logTexture: log,
+        } as const
+
+console.log(dirt, grass, glass, wood, log);
+
+        const pressedTexture = Object.entries(textureKeys).find(([k, v]) => v) as [keyof typeof textureKeys, typeof textureKeys[keyof typeof textureKeys]]
         if (pressedTexture) {
             setTexture(pressedTexture[0])
-        }
+        } console.log(pressedTexture);
     }, [setTexture, dirt, grass, glass, wood, log])
 
     useEffect(() => {
@@ -46,7 +49,6 @@ export const TextureSelector = () => {
         return () => {
             clearTimeout(visibilityTimeout)
         }
-
     }, [activeTexture])
 
     return visible ? <div className='absolute centered'>

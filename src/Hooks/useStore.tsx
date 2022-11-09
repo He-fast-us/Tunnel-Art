@@ -44,9 +44,9 @@ export const useStore = create<State>((set) => ({
     },
 
     setTexture: (texture) => {
-        set(() => {
+        set(() => ({
             texture
-        })
+        }))
     },
 
     saveWorld: () => {
