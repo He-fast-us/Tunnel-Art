@@ -9,7 +9,7 @@ export const Ground = () => {
     }))
     const [addCube] = useStore((state) => [state.addCube])
 
-    groundTexture.repeat.set(100, 100) 
+    groundTexture.repeat.set(80, 80) 
 
     return (
         <mesh 
