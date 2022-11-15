@@ -7,7 +7,7 @@ export const Ground = () => {
     const [ref] = usePlane(() => ({
         rotation: [-Math.PI / 2, 0, 0], position: [0, -0.5, 0]
     }))
-    const [addCube] = useStore((state) => [state.addCube])
+    const [addCube, removeCube] = useStore((state) => [state.addCube, state.removeCube])
 
     groundTexture.repeat.set(80, 80) 
 
@@ -25,3 +25,7 @@ export const Ground = () => {
     )
  
 }
+
+//e.stopPropagation causes the addition of a cube to stop on the ground (can't be passed through the ground)
+//note that "ground" is set at Y -0.5, half a unit down, because before that added cubes floated because the ceil (ceiling) rounded-up too high
+//the [addCube] step here adds the ability to click on the ground to add a cube

@@ -31,7 +31,7 @@ export const Cube = ({ position, texture }: { position: Triplet, texture: keyof 
             }
             const clickedFace = Math.floor(e.faceIndex / 2)
             const {x, y, z} = ref.current.position
-            if(e.altKey){
+            if(e.button == 2){
                 removeCube(x, y, z)
                 return
             }
